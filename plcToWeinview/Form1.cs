@@ -369,58 +369,55 @@ namespace plcToWeinview
             {
                 var plc = GlobalData.PLC_Alarm[i];
 
-                // 跳过：解析失败
+                // ==============================
+                // ✅ 修复：只跳过解析失败，不跳过空内容
+                // ==============================
                 if (plc.Group == -1 || plc.Index == -1)
                 {
                     File.AppendAllText(logFile, $"[跳过] PLC索引{i} 解析失败(G=-1)" + Environment.NewLine);
                     continue;
                 }
-                // 跳过：无有效文本
-                if (string.IsNullOrWhiteSpace(plc.Message))
-                    continue;
 
                 plcValidCount++;
                 bool isFindMatch = false;
 
-                // 2. 遍历所有WLT数据 0~999 全程不break
+                // 2. 遍历所有WLT数据
                 for (int j = 0; j < 1000; j++)
                 {
                     var wlt = GlobalData.WLT_Alarm[j];
-                    // 跳过WLT解析失败
                     if (wlt.Group == -1 || wlt.Index == -1)
                         continue;
-                    // 跳过WLT空数据
-                    if (string.IsNullOrWhiteSpace(wlt.Message))
-                        continue;
 
-                    // ✅ 严格唯一匹配：Group 完全一致 + Index 完全一致
+                    // 匹配 Group + Index
                     if (wlt.Group == plc.Group && wlt.Index == plc.Index)
                     {
                         isFindMatch = true;
 
-                        // 内容完全一致
-                        if (wlt.Message.Equals(plc.Message))
+                        string plcMsg = plc.Message ?? "";
+                        string wltMsg = wlt.Message ?? "";
+
+                        // 一致
+                        if (wltMsg == plcMsg)
                         {
-                            File.AppendAllText(logFile, $"[一致] G:{plc.Group} I:{plc.Index} | {plc.Message}" + Environment.NewLine);
+                            File.AppendAllText(logFile, $"[一致] G:{plc.Group} I:{plc.Index} | {plcMsg}" + Environment.NewLine);
                         }
-                        // 内容不一致 → PLC强制覆盖WLT
+                        // 不一致（包括 PLC 为空的情况）
                         else
                         {
                             diffCount++;
                             File.AppendAllText(logFile, $"[覆盖] G:{plc.Group} I:{plc.Index}" + Environment.NewLine);
-                            File.AppendAllText(logFile, $"   WLT原文：{wlt.Message}" + Environment.NewLine);
-                            File.AppendAllText(logFile, $"   PLC标准：{plc.Message}" + Environment.NewLine);
+                            File.AppendAllText(logFile, $"   WLT旧值：{wltMsg}" + Environment.NewLine);
+                            File.AppendAllText(logFile, $"   PLC新值：{plcMsg}" + Environment.NewLine);
 
-                            // 覆盖写入
-                            wlt.Message = plc.Message;
+                            // 强制覆盖，包括空值
+                            wlt.Message = plcMsg;
                             GlobalData.WLT_Alarm[j] = wlt;
                         }
-                        // 找到当前唯一匹配项，终止WLT内层循环，防止重复乱匹配
                         break;
                     }
                 }
 
-                // 3. 循环完WLT全程，没找到 = WLT缺失该条
+                // 没找到匹配
                 if (!isFindMatch)
                 {
                     missCount++;
@@ -428,11 +425,11 @@ namespace plcToWeinview
                 }
             }
 
-            // 最终统计日志
             File.AppendAllText(logFile, Environment.NewLine);
             File.AppendAllText(logFile, $"对比完成：有效PLC标准数据={plcValidCount} 条 | 内容差异已修正={diffCount} 条 | WLT缺失条目={missCount} 条" + Environment.NewLine);
             File.AppendAllText(logFile, "============================ 数据对比结束 ============================" + Environment.NewLine);
-            GenerateWltSaveData();//生成保存数据
+
+            GenerateWltSaveData();
             MessageBox.Show(
                 $"对比执行完毕\r\n" +
                 $"有效标准数据：{plcValidCount} 条\r\n" +

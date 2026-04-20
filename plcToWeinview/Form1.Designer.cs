@@ -34,6 +34,10 @@
             this.wltPath = new System.Windows.Forms.TextBox();
             this.getTxt = new System.Windows.Forms.Button();
             this.getExcel = new System.Windows.Forms.Button();
+            this.excelCow = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.excelLine = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // readTxt
@@ -86,14 +90,51 @@
             this.getExcel.Name = "getExcel";
             this.getExcel.Size = new System.Drawing.Size(105, 38);
             this.getExcel.TabIndex = 5;
-            this.getExcel.Text = "选择Excel";
+            this.getExcel.Text = "读取Excel";
             this.getExcel.UseVisualStyleBackColor = true;
+            this.getExcel.Click += new System.EventHandler(this.getExcel_Click);
+            // 
+            // excelCow
+            // 
+            this.excelCow.Location = new System.Drawing.Point(705, 40);
+            this.excelCow.Name = "excelCow";
+            this.excelCow.Size = new System.Drawing.Size(100, 28);
+            this.excelCow.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(811, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(26, 18);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "列";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(811, 84);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(98, 18);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "行(含本行)";
+            // 
+            // excelLine
+            // 
+            this.excelLine.Location = new System.Drawing.Point(705, 74);
+            this.excelLine.Name = "excelLine";
+            this.excelLine.Size = new System.Drawing.Size(100, 28);
+            this.excelLine.TabIndex = 8;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1371, 803);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.excelLine);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.excelCow);
             this.Controls.Add(this.getExcel);
             this.Controls.Add(this.getTxt);
             this.Controls.Add(this.wltPath);
@@ -115,6 +156,10 @@
         private System.Windows.Forms.TextBox wltPath;
         private System.Windows.Forms.Button getTxt;
         private System.Windows.Forms.Button getExcel;
+        private System.Windows.Forms.TextBox excelCow;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox excelLine;
     }
 }
 

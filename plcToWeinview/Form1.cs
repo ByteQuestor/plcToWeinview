@@ -91,6 +91,7 @@ namespace plcToWeinview
                 }
 
                 MessageBox.Show("读取成功！数据已存入全局 Alarm");
+                RefreshAlarmGrid();
             }
             catch (Exception ex)
             {
@@ -159,12 +160,49 @@ namespace plcToWeinview
                 }
 
                 MessageBox.Show($"Excel读取完成，共获取{index}条数据");
+                RefreshWltGrid();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("读取失败：" + ex.Message);
             }
-
+            //RefreshAlarmGrid();
         }
+
+        //========= 下面两个方法 直接整块复制粘贴在这里 ========
+        private void RefreshAlarmGrid()
+        {
+            dgvAlarm.Rows.Clear();
+            dgvAlarm.Columns.Clear();
+            dgvAlarm.Columns.Add("colMsg", "TXT报警内容");
+            dgvAlarm.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAlarm.RowHeadersVisible = false;
+
+            for (int i = 0; i < 1000; i++)
+            {
+                if (!string.IsNullOrWhiteSpace(GlobalData.AlarmArray[i]))
+                {
+                    dgvAlarm.Rows.Add(GlobalData.AlarmArray[i]);
+                }
+            }
+        }
+
+        private void RefreshWltGrid()
+        {
+            dgvWlt.Rows.Clear();
+            dgvWlt.Columns.Clear();
+            dgvWlt.Columns.Add("colMsg", "Excel内容");
+            dgvWlt.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvWlt.RowHeadersVisible = false;
+
+            for (int i = 0; i < 1000; i++)
+            {
+                if (!string.IsNullOrWhiteSpace(GlobalData.wltExcel[i]))
+                {
+                    dgvWlt.Rows.Add(GlobalData.wltExcel[i]);
+                }
+            }
+        }
+        //====================================================
     }
 }

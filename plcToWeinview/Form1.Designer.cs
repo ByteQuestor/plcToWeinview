@@ -38,6 +38,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.excelLine = new System.Windows.Forms.TextBox();
+            this.dgvAlarm = new System.Windows.Forms.DataGridView();
+            this.dgvWlt = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlarm)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWlt)).BeginInit();
             this.SuspendLayout();
             // 
             // readTxt
@@ -126,11 +130,33 @@
             this.excelLine.Size = new System.Drawing.Size(100, 28);
             this.excelLine.TabIndex = 8;
             // 
+            // dgvAlarm
+            // 
+            this.dgvAlarm.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAlarm.Location = new System.Drawing.Point(13, 177);
+            this.dgvAlarm.Name = "dgvAlarm";
+            this.dgvAlarm.RowHeadersWidth = 62;
+            this.dgvAlarm.RowTemplate.Height = 30;
+            this.dgvAlarm.Size = new System.Drawing.Size(533, 614);
+            this.dgvAlarm.TabIndex = 10;
+            // 
+            // dgvWlt
+            // 
+            this.dgvWlt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvWlt.Location = new System.Drawing.Point(826, 177);
+            this.dgvWlt.Name = "dgvWlt";
+            this.dgvWlt.RowHeadersWidth = 62;
+            this.dgvWlt.RowTemplate.Height = 30;
+            this.dgvWlt.Size = new System.Drawing.Size(533, 614);
+            this.dgvWlt.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1371, 803);
+            this.Controls.Add(this.dgvWlt);
+            this.Controls.Add(this.dgvAlarm);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.excelLine);
             this.Controls.Add(this.label1);
@@ -143,6 +169,8 @@
             this.Controls.Add(this.readTxt);
             this.Name = "Form1";
             this.Text = "希来报警信息快速填充";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlarm)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWlt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,6 +188,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox excelLine;
+        private System.Windows.Forms.DataGridView dgvAlarm;
+        private System.Windows.Forms.DataGridView dgvWlt;
     }
 }
 

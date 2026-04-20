@@ -49,6 +49,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.saveToWLT = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlarm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWlt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.parseWlt)).BeginInit();
@@ -243,11 +244,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // saveToWLT
+            // 
+            this.saveToWLT.Location = new System.Drawing.Point(567, 653);
+            this.saveToWLT.Name = "saveToWLT";
+            this.saveToWLT.Size = new System.Drawing.Size(238, 116);
+            this.saveToWLT.TabIndex = 21;
+            this.saveToWLT.Text = "保存";
+            this.saveToWLT.UseVisualStyleBackColor = true;
+            this.saveToWLT.Click += new System.EventHandler(this.saveToWLT_Click);
+            // 
             // btnCompare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1371, 803);
+            this.Controls.Add(this.saveToWLT);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -303,6 +315,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button saveToWLT;
     }
 }
 

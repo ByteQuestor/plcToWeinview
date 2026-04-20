@@ -1,14 +1,15 @@
-﻿using System;
+﻿using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using System.Data.OleDb;
 namespace plcToWeinview
 {
     public partial class btnCompare : Form
@@ -431,12 +432,85 @@ namespace plcToWeinview
             File.AppendAllText(logFile, Environment.NewLine);
             File.AppendAllText(logFile, $"对比完成：有效PLC标准数据={plcValidCount} 条 | 内容差异已修正={diffCount} 条 | WLT缺失条目={missCount} 条" + Environment.NewLine);
             File.AppendAllText(logFile, "============================ 数据对比结束 ============================" + Environment.NewLine);
-
+            GenerateWltSaveData();//生成保存数据
             MessageBox.Show(
                 $"对比执行完毕\r\n" +
                 $"有效标准数据：{plcValidCount} 条\r\n" +
                 $"差异覆盖修正：{diffCount} 条\r\n" +
                 $"WLT缺失条目：{missCount} 条");
         }
+
+
+        // ===================== 【生成保存数据：对比完执行】 =====================
+        // ===================== 生成最终保存数据 =====================
+        private void GenerateWltSaveData()
+        {
+            Array.Clear(GlobalData.wltSaveExcel, 0, 1000);
+
+            for (int i = 0; i < 1000; i++)
+            {
+                var item = GlobalData.WLT_Alarm[i];
+
+                if (item.Group == -1 || item.Index == -1)
+                {
+                    GlobalData.wltSaveExcel[i] = "-1";
+                }
+                else
+                {
+                    // 你要的格式：Groups1[3]=夹爪伺服掉线
+                    GlobalData.wltSaveExcel[i] = $"Groups{item.Group}[{item.Index}]={item.Message}";
+                }
+            }
+        }
+
+        private void saveToWLT_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 先生成数据
+                GenerateWltSaveData();
+
+                // 保存到桌面
+                string savePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "威纶通报警列_可直接复制.xlsx");
+
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    ExcelWorksheet ws = package.Workbook.Worksheets.Add("报警数据");
+
+                    // ==============================================
+                    // ✅ 正确格式：最前面空一行
+                    // ==============================================
+                    ws.Cells[1, 1].Value = "";        // 第1行：空行
+                    ws.Cells[2, 1].Value = "内容";     // 第2行：内容
+                    ws.Cells[3, 1].Value = "用户退出！！"; // 第3行
+                    ws.Cells[4, 1].Value = "用户登录！！"; // 第4行
+
+                    // ==============================================
+                    // ✅ 第5行开始写入报警数据
+                    // ==============================================
+                    int writeRow = 5;
+                    for (int i = 0; i < 1000; i++)
+                    {
+                        string content = GlobalData.wltSaveExcel[i] ?? "-1";
+                        ws.Cells[writeRow, 1].Value = content;
+                        writeRow++;
+                    }
+
+                    // 保存文件
+                    File.WriteAllBytes(savePath, package.GetAsByteArray());
+                }
+
+                // 自动打开
+                System.Diagnostics.Process.Start(savePath);
+                MessageBox.Show("✅ 生成完成！格式完全正确！\n直接全选复制粘贴即可！", "成功");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("错误：" + ex.Message);
+            }
+        }
     }
+
+
+
 }

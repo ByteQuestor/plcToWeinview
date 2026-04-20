@@ -12,3 +12,4 @@ E:\User\wzy\AUTOMATION\plcToWeinview\plcToWeinview\bin\Debug\EPPlusFree.dll
 E:\User\wzy\AUTOMATION\plcToWeinview\plcToWeinview\bin\Debug\EPPlusFree.xml
 E:\User\wzy\AUTOMATION\plcToWeinview\plcToWeinview\obj\Debug\plcToWei.3AE1159D.Up2Date
 E:\User\wzy\AUTOMATION\plcToWeinview\plcToWeinview\obj\Debug\plcToWeinview.exe.config
+E:\User\wzy\AUTOMATION\plcToWeinview\plcToWeinview\obj\Debug\plcToWeinview.ParseForm.resources

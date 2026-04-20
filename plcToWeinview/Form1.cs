@@ -203,6 +203,153 @@ namespace plcToWeinview
                 }
             }
         }
+
+        private void parse_Alarm_Click(object sender, EventArgs e)
+        {
+            int totalCount = 0;
+
+            // 先算总行数
+            for (int i = 0; i < 1000; i++)
+            {
+                if (!string.IsNullOrEmpty(GlobalData.AlarmArray[i]))
+                    totalCount++;
+                else
+                    break;
+            }
+
+            // 开始解析
+            for (int i = 0; i < totalCount; i++)
+            {
+                string line = GlobalData.AlarmArray[i];
+                var data = new GlobalData.AlarmData();
+
+                try
+                {
+                    // 示例："Alarm".Groups4[7] := ... //B102缓存拉带...
+                    int groupStart = line.IndexOf("Groups") + 6;
+                    int group = int.Parse(line[groupStart].ToString());
+
+                    int indexStart = line.IndexOf('[', groupStart) + 1;
+                    int indexEnd = line.IndexOf(']', indexStart);
+                    int index = int.Parse(line.Substring(indexStart, indexEnd - indexStart));
+
+                    int msgStart = line.IndexOf("//") + 2;
+                    string msg = line.Substring(msgStart).Trim();
+
+                    data.Group = group;
+                    data.Index = index;
+                    data.Message = msg;
+                    data.TotalCount = totalCount;
+                }
+                catch
+                {
+                    // 解析失败
+                    data.Group = -1;
+                    data.Index = -1;
+                    data.Message = "Error";
+                    data.TotalCount = totalCount;
+                }
+
+                GlobalData.PLC_Alarm[i] = data;
+            }
+            ShowParsedPLCData();
+            MessageBox.Show("TXT 解析完成！\n共 " + totalCount + " 条");
+        }
+
+        private void parse_WLT_Click(object sender, EventArgs e)
+        {
+            int totalCount = 0;
+
+            // 先算总行数
+            for (int i = 0; i < 1000; i++)
+            {
+                if (!string.IsNullOrEmpty(GlobalData.wltExcel[i]))
+                    totalCount++;
+                else
+                    break;
+            }
+
+            // 开始解析
+            for (int i = 0; i < totalCount; i++)
+            {
+                string line = GlobalData.wltExcel[i];
+                var data = new GlobalData.AlarmData();
+
+                try
+                {
+                    // 示例：Groups1[24]机器人未初始化完成
+                    int groupStart = line.IndexOf("Groups") + 6;
+                    int group = int.Parse(line[groupStart].ToString());
+
+                    int indexStart = line.IndexOf('[') + 1;
+                    int indexEnd = line.IndexOf(']');
+                    int index = int.Parse(line.Substring(indexStart, indexEnd - indexStart));
+
+                    string msg = line.Substring(indexEnd + 1).Trim();
+
+                    data.Group = group;
+                    data.Index = index;
+                    data.Message = msg;
+                    data.TotalCount = totalCount;
+                }
+                catch
+                {
+                    // 解析失败
+                    data.Group = -1;
+                    data.Index = -1;
+                    data.Message = "Error";
+                    data.TotalCount = totalCount;
+                }
+
+                GlobalData.WLT_Alarm[i] = data;
+            }
+            ShowParsedWLTData();
+            MessageBox.Show("Excel 解析完成！\n共 " + totalCount + " 条");
+        }
         //====================================================
+
+        // ==================== 渲染 PLC 解析表格 ====================
+        private void ShowParsedPLCData()
+        {
+            parseAlarm.Rows.Clear();
+            parseAlarm.Columns.Clear();
+
+            parseAlarm.Columns.Add("Group", "组号");
+            parseAlarm.Columns.Add("Index", "索引");
+            parseAlarm.Columns.Add("Msg", "报警信息");
+            parseAlarm.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            parseAlarm.RowHeadersVisible = false;
+
+            int total = GlobalData.PLC_Alarm[0].TotalCount;
+            parseAlarmTextBox.Text = total.ToString();
+
+            for (int i = 0; i < total; i++)
+            {
+                var item = GlobalData.PLC_Alarm[i];
+                parseAlarm.Rows.Add(item.Group, item.Index, item.Message);
+            }
+        }
+
+        // ==================== 渲染 WLT 解析表格 ====================
+        private void ShowParsedWLTData()
+        {
+            parseWlt.Rows.Clear();
+            parseWlt.Columns.Clear();
+
+            parseWlt.Columns.Add("Group", "组号");
+            parseWlt.Columns.Add("Index", "索引");
+            parseWlt.Columns.Add("Msg", "报警信息");
+            parseWlt.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            parseWlt.RowHeadersVisible = false;
+
+            int total = GlobalData.WLT_Alarm[0].TotalCount;
+            parseWltTextBox.Text = total.ToString();
+
+            for (int i = 0; i < total; i++)
+            {
+                var item = GlobalData.WLT_Alarm[i];
+                parseWlt.Rows.Add(item.Group, item.Index, item.Message);
+            }
+        }
     }
 }

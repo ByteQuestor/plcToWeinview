@@ -40,8 +40,18 @@
             this.excelLine = new System.Windows.Forms.TextBox();
             this.dgvAlarm = new System.Windows.Forms.DataGridView();
             this.dgvWlt = new System.Windows.Forms.DataGridView();
+            this.parse_Alarm = new System.Windows.Forms.Button();
+            this.parse_WLT = new System.Windows.Forms.Button();
+            this.parseWlt = new System.Windows.Forms.DataGridView();
+            this.parseAlarm = new System.Windows.Forms.DataGridView();
+            this.parseAlarmTextBox = new System.Windows.Forms.TextBox();
+            this.parseWltTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlarm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWlt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parseWlt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parseAlarm)).BeginInit();
             this.SuspendLayout();
             // 
             // readTxt
@@ -133,28 +143,108 @@
             // dgvAlarm
             // 
             this.dgvAlarm.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAlarm.Location = new System.Drawing.Point(13, 177);
+            this.dgvAlarm.Location = new System.Drawing.Point(13, 139);
             this.dgvAlarm.Name = "dgvAlarm";
             this.dgvAlarm.RowHeadersWidth = 62;
             this.dgvAlarm.RowTemplate.Height = 30;
-            this.dgvAlarm.Size = new System.Drawing.Size(533, 614);
+            this.dgvAlarm.Size = new System.Drawing.Size(654, 183);
             this.dgvAlarm.TabIndex = 10;
             // 
             // dgvWlt
             // 
             this.dgvWlt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvWlt.Location = new System.Drawing.Point(826, 177);
+            this.dgvWlt.Location = new System.Drawing.Point(705, 139);
             this.dgvWlt.Name = "dgvWlt";
             this.dgvWlt.RowHeadersWidth = 62;
             this.dgvWlt.RowTemplate.Height = 30;
-            this.dgvWlt.Size = new System.Drawing.Size(533, 614);
+            this.dgvWlt.Size = new System.Drawing.Size(654, 183);
             this.dgvWlt.TabIndex = 11;
+            // 
+            // parse_Alarm
+            // 
+            this.parse_Alarm.Location = new System.Drawing.Point(243, 346);
+            this.parse_Alarm.Name = "parse_Alarm";
+            this.parse_Alarm.Size = new System.Drawing.Size(107, 60);
+            this.parse_Alarm.TabIndex = 12;
+            this.parse_Alarm.Text = "解析Alarm";
+            this.parse_Alarm.UseVisualStyleBackColor = true;
+            this.parse_Alarm.Click += new System.EventHandler(this.parse_Alarm_Click);
+            // 
+            // parse_WLT
+            // 
+            this.parse_WLT.Location = new System.Drawing.Point(970, 346);
+            this.parse_WLT.Name = "parse_WLT";
+            this.parse_WLT.Size = new System.Drawing.Size(107, 60);
+            this.parse_WLT.TabIndex = 13;
+            this.parse_WLT.Text = "解析Wlt";
+            this.parse_WLT.UseVisualStyleBackColor = true;
+            this.parse_WLT.Click += new System.EventHandler(this.parse_WLT_Click);
+            // 
+            // parseWlt
+            // 
+            this.parseWlt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.parseWlt.Location = new System.Drawing.Point(705, 428);
+            this.parseWlt.Name = "parseWlt";
+            this.parseWlt.RowHeadersWidth = 62;
+            this.parseWlt.RowTemplate.Height = 30;
+            this.parseWlt.Size = new System.Drawing.Size(654, 183);
+            this.parseWlt.TabIndex = 15;
+            // 
+            // parseAlarm
+            // 
+            this.parseAlarm.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.parseAlarm.Location = new System.Drawing.Point(13, 428);
+            this.parseAlarm.Name = "parseAlarm";
+            this.parseAlarm.RowHeadersWidth = 62;
+            this.parseAlarm.RowTemplate.Height = 30;
+            this.parseAlarm.Size = new System.Drawing.Size(654, 183);
+            this.parseAlarm.TabIndex = 14;
+            // 
+            // parseAlarmTextBox
+            // 
+            this.parseAlarmTextBox.Location = new System.Drawing.Point(394, 377);
+            this.parseAlarmTextBox.Name = "parseAlarmTextBox";
+            this.parseAlarmTextBox.Size = new System.Drawing.Size(100, 28);
+            this.parseAlarmTextBox.TabIndex = 16;
+            // 
+            // parseWltTextBox
+            // 
+            this.parseWltTextBox.Location = new System.Drawing.Point(1121, 378);
+            this.parseWltTextBox.Name = "parseWltTextBox";
+            this.parseWltTextBox.Size = new System.Drawing.Size(100, 28);
+            this.parseWltTextBox.TabIndex = 17;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(394, 356);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 18);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "数据条数";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1118, 357);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 18);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "数据条数";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1371, 803);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.parseWltTextBox);
+            this.Controls.Add(this.parseAlarmTextBox);
+            this.Controls.Add(this.parseWlt);
+            this.Controls.Add(this.parseAlarm);
+            this.Controls.Add(this.parse_WLT);
+            this.Controls.Add(this.parse_Alarm);
             this.Controls.Add(this.dgvWlt);
             this.Controls.Add(this.dgvAlarm);
             this.Controls.Add(this.label2);
@@ -171,6 +261,8 @@
             this.Text = "希来报警信息快速填充";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlarm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWlt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parseWlt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.parseAlarm)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,6 +282,14 @@
         private System.Windows.Forms.TextBox excelLine;
         private System.Windows.Forms.DataGridView dgvAlarm;
         private System.Windows.Forms.DataGridView dgvWlt;
+        private System.Windows.Forms.Button parse_Alarm;
+        private System.Windows.Forms.Button parse_WLT;
+        private System.Windows.Forms.DataGridView parseWlt;
+        private System.Windows.Forms.DataGridView parseAlarm;
+        private System.Windows.Forms.TextBox parseAlarmTextBox;
+        private System.Windows.Forms.TextBox parseWltTextBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 

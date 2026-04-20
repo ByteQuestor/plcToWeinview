@@ -1,0 +1,11 @@
+E:\User\wzy\AUTOMATION\plcToWeinview\plcToWeinview\bin\Debug\plcToWeinview.exe.config
+E:\User\wzy\AUTOMATION\plcToWeinview\plcToWeinview\bin\Debug\plcToWeinview.exe
+E:\User\wzy\AUTOMATION\plcToWeinview\plcToWeinview\bin\Debug\plcToWeinview.pdb
+E:\User\wzy\AUTOMATION\plcToWeinview\plcToWeinview\obj\Debug\plcToWeinview.csproj.AssemblyReference.cache
+E:\User\wzy\AUTOMATION\plcToWeinview\plcToWeinview\obj\Debug\plcToWeinview.希来报警信息快速填充.resources
+E:\User\wzy\AUTOMATION\plcToWeinview\plcToWeinview\obj\Debug\plcToWeinview.Properties.Resources.resources
+E:\User\wzy\AUTOMATION\plcToWeinview\plcToWeinview\obj\Debug\plcToWeinview.csproj.GenerateResource.cache
+E:\User\wzy\AUTOMATION\plcToWeinview\plcToWeinview\obj\Debug\plcToWeinview.csproj.CoreCompileInputs.cache
+E:\User\wzy\AUTOMATION\plcToWeinview\plcToWeinview\obj\Debug\plcToWeinview.exe
+E:\User\wzy\AUTOMATION\plcToWeinview\plcToWeinview\obj\Debug\plcToWeinview.pdb
+E:\User\wzy\AUTOMATION\plcToWeinview\plcToWeinview\obj\Debug\plcToWeinview.exe.config

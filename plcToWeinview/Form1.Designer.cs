@@ -1,6 +1,6 @@
 ﻿namespace plcToWeinview
 {
-    partial class Form1
+    partial class btnCompare
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -48,6 +48,7 @@
             this.parseWltTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlarm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWlt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.parseWlt)).BeginInit();
@@ -232,11 +233,22 @@
             this.label4.TabIndex = 19;
             this.label4.Text = "数据条数";
             // 
-            // Form1
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(651, 346);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(126, 59);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "数据对比";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnCompare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1371, 803);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.parseWltTextBox);
@@ -257,7 +269,7 @@
             this.Controls.Add(this.plcPath);
             this.Controls.Add(this.readExcel);
             this.Controls.Add(this.readTxt);
-            this.Name = "Form1";
+            this.Name = "btnCompare";
             this.Text = "希来报警信息快速填充";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlarm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWlt)).EndInit();
@@ -290,6 +302,7 @@
         private System.Windows.Forms.TextBox parseWltTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -28,5 +28,8 @@ namespace plcToWeinview
         // 最终解析结果
         public static AlarmData[] PLC_Alarm = new AlarmData[1000];
         public static AlarmData[] WLT_Alarm = new AlarmData[1000];
+
+        //最终写入到表格
+        public static string[] wltSaveExcel = new string[3000];
     }
 }

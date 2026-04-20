@@ -455,7 +455,7 @@ namespace plcToWeinview
                 else
                 {
                     // 你要的格式：Groups1[3]=夹爪伺服掉线
-                    GlobalData.wltSaveExcel[i] = $"Groups{item.Group}[{item.Index}]={item.Message}";
+                    GlobalData.wltSaveExcel[i] = $"Groups{item.Group}[{item.Index}]{item.Message}";
                 }
             }
         }

@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "E:\\User\\wzy\\AUTOMATION\\plcToWeinview\\plcToWeinview\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8707FBAC-69CB-4A27-A375-F52A06A8AA18}|plcToWeinview.csproj|e:\\user\\wzy\\automation\\plctoweinview\\plctoweinview\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8707FBAC-69CB-4A27-A375-F52A06A8AA18}|plcToWeinview.csproj|E:\\User\\wzy\\AUTOMATION\\plcToWeinview\\plcToWeinview\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8707FBAC-69CB-4A27-A375-F52A06A8AA18}|plcToWeinview.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8707FBAC-69CB-4A27-A375-F52A06A8AA18}|plcToWeinview.csproj|e:\\user\\wzy\\automation\\plctoweinview\\plctoweinview\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8707FBAC-69CB-4A27-A375-F52A06A8AA18}|plcToWeinview.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{8707FBAC-69CB-4A27-A375-F52A06A8AA18}|plcToWeinview.csproj|e:\\user\\wzy\\automation\\plctoweinview\\plctoweinview\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8707FBAC-69CB-4A27-A375-F52A06A8AA18}|plcToWeinview.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8707FBAC-69CB-4A27-A375-F52A06A8AA18}|plcToWeinview.csproj|e:\\user\\wzy\\automation\\plctoweinview\\plctoweinview\\globaldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8707FBAC-69CB-4A27-A375-F52A06A8AA18}|plcToWeinview.csproj|solutionrelative:globaldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8707FBAC-69CB-4A27-A375-F52A06A8AA18}|plcToWeinview.csproj|e:\\user\\wzy\\automation\\plctoweinview\\plctoweinview\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8707FBAC-69CB-4A27-A375-F52A06A8AA18}|plcToWeinview.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,21 +26,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "E:\\User\\wzy\\AUTOMATION\\plcToWeinview\\plcToWeinview\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "E:\\User\\wzy\\AUTOMATION\\plcToWeinview\\plcToWeinview\\Form1.cs",
-              "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAowCoAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T13:08:56.136Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -45,14 +36,40 @@
               "RelativeDocumentMoniker": "GlobalData.cs",
               "ToolTip": "E:\\User\\wzy\\AUTOMATION\\plcToWeinview\\plcToWeinview\\GlobalData.cs",
               "RelativeToolTip": "GlobalData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvw4AAABIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxAAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T13:04:20.27Z",
+              "WhenOpened": "2026-04-20T13:24:22.853Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\User\\wzy\\AUTOMATION\\plcToWeinview\\plcToWeinview\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "E:\\User\\wzy\\AUTOMATION\\plcToWeinview\\plcToWeinview\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T13:18:50.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "E:\\User\\wzy\\AUTOMATION\\plcToWeinview\\plcToWeinview\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "E:\\User\\wzy\\AUTOMATION\\plcToWeinview\\plcToWeinview\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAAAFkAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T13:08:56.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Form1.cs [\u8BBE\u8BA1]",
               "DocumentMoniker": "E:\\User\\wzy\\AUTOMATION\\plcToWeinview\\plcToWeinview\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",

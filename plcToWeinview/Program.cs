@@ -16,7 +16,7 @@ namespace plcToWeinview
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new 希来报警信息快速填充());
+            Application.Run(new Form1());
         }
     }
 }

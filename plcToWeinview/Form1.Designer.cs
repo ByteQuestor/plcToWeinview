@@ -1,6 +1,6 @@
 ﻿namespace plcToWeinview
 {
-    partial class 希来报警信息快速填充
+    partial class Form1
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -32,6 +32,8 @@
             this.readExcel = new System.Windows.Forms.Button();
             this.plcPath = new System.Windows.Forms.TextBox();
             this.wltPath = new System.Windows.Forms.TextBox();
+            this.getTxt = new System.Windows.Forms.Button();
+            this.getExcel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // readTxt
@@ -68,17 +70,38 @@
             this.wltPath.Size = new System.Drawing.Size(358, 28);
             this.wltPath.TabIndex = 3;
             // 
-            // 希来报警信息快速填充
+            // getTxt
+            // 
+            this.getTxt.Location = new System.Drawing.Point(507, 13);
+            this.getTxt.Name = "getTxt";
+            this.getTxt.Size = new System.Drawing.Size(105, 38);
+            this.getTxt.TabIndex = 4;
+            this.getTxt.Text = "读取TXT";
+            this.getTxt.UseVisualStyleBackColor = true;
+            this.getTxt.Click += new System.EventHandler(this.getTxt_Click);
+            // 
+            // getExcel
+            // 
+            this.getExcel.Location = new System.Drawing.Point(507, 57);
+            this.getExcel.Name = "getExcel";
+            this.getExcel.Size = new System.Drawing.Size(105, 38);
+            this.getExcel.TabIndex = 5;
+            this.getExcel.Text = "选择Excel";
+            this.getExcel.UseVisualStyleBackColor = true;
+            // 
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1371, 803);
+            this.Controls.Add(this.getExcel);
+            this.Controls.Add(this.getTxt);
             this.Controls.Add(this.wltPath);
             this.Controls.Add(this.plcPath);
             this.Controls.Add(this.readExcel);
             this.Controls.Add(this.readTxt);
-            this.Name = "希来报警信息快速填充";
-            this.Text = "Form1";
+            this.Name = "Form1";
+            this.Text = "希来报警信息快速填充";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,6 +113,8 @@
         private System.Windows.Forms.Button readExcel;
         private System.Windows.Forms.TextBox plcPath;
         private System.Windows.Forms.TextBox wltPath;
+        private System.Windows.Forms.Button getTxt;
+        private System.Windows.Forms.Button getExcel;
     }
 }
 
